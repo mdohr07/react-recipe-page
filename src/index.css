@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@plugin "daisyui"  {
+  themes: light --default, light --preferslight, lemonade;
+}
+
+:root,
+[data-theme] {
+  background-color: var(--root-bg, var(--color-base-100));
+  color: var(--color-base-content);
+}
+
+
+/* Navbar */
+.navbar a {
+  
+}
+
+.logo {
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+/* Home Content */
+main {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+  margin: 1rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-shrink: 0;
+  position: fixed;
+  margin: 0;
+  bottom: 0;
+}
+
+.align-left { /* Navigation title */
+  text-align: left;
+}
