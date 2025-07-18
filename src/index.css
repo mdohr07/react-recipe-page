@@ -11,13 +11,27 @@
 
 
 /* Navbar */
-.navbar a {
-  
+.navbar button {
+  border: none;
+  background-color: transparent;
+  transform: scale(1.5);
+}
+
+.navbar button:hover {
+  background-color: transparent;
+  border: none;
+  color: #fff;
 }
 
 .logo {
   font-weight: bolder;
   font-size: xx-large;
+}
+
+.menu {
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
 }
 
 /* Home Content */
