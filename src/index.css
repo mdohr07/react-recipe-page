@@ -33,6 +33,7 @@ main {
 /* Footer */
 footer {
   display: flex;
+    justify-content: center;
   flex-shrink: 0;
   position: fixed;
   margin: 0;
