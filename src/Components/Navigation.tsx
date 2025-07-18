@@ -1,4 +1,4 @@
-import React, { useState, type FC } from "react";
+import { type FC, useState } from "react";
 
 const Navigation: FC = () => {
   const [openMenu, setOpenMenu] = useState(false);

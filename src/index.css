@@ -1,6 +1,18 @@
 @import "tailwindcss";
-@plugin "daisyui"  {
-  themes: light --default, light --preferslight, lemonade;
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "lemonade";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* effects */
+  --depth: 1;
+  --noise: 0;
 }
 
 :root,
@@ -11,6 +23,10 @@
 
 
 /* Navbar */
+.navbar {
+  position: fixed;
+}
+
 .navbar button {
   border: none;
   background-color: transparent;
@@ -40,8 +56,13 @@ main {
   flex: 1 0 auto;
   justify-content: center;
   height: 100%;
-  width: 90%;
-  margin: 1rem;
+  width: 100%;
+  margin: 0;
+}
+
+.hero {
+  background-image: url('./assets/pexels-adonyi-foto-1414651.jpg');
+  background-size: cover;
 }
 
 /* Footer */
