@@ -23,14 +23,26 @@
 
 
 /* Navbar */
-.navbar {
-  position: fixed;
+header {
+   position: fixed;
+   z-index: 999;
+   width: 100%;
 }
 
 .navbar button {
-  border: none;
+  border: 0px;
+  outline-width: 0px;
+  box-shadow: none;
   background-color: transparent;
   transform: scale(1.5);
+}
+
+.navbar button:hover {
+  border: 0px transparent;
+  background-color: transparent;
+  transform: scale(1.5);
+  box-shadow: 0;
+  outline-width: 0px;
 }
 
 .navbar button:hover {
@@ -39,9 +51,10 @@
   color: #fff;
 }
 
-.logo {
+.logo h1 {
   font-weight: bolder;
   font-size: xx-large;
+  color: yellowgreen;
 }
 
 .menu {
@@ -53,22 +66,28 @@
 /* Home Content */
 main {
   display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin: 0;
 }
 
 .hero {
   background-image: url('./assets/pexels-adonyi-foto-1414651.jpg');
   background-size: cover;
+  margin-top: 80px;
+}
+
+.cats {
+  min-height: 300px;
+  margin-bottom: 80px;
 }
 
 /* Footer */
 footer {
   display: flex;
-    justify-content: center;
+  justify-content: center;
   flex-shrink: 0;
   position: fixed;
   margin: 0;
@@ -77,4 +96,8 @@ footer {
 
 .align-left { /* Navigation title */
   text-align: left;
+}
+
+button, button a {
+    color: #fff;
 }

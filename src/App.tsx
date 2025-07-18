@@ -9,7 +9,7 @@ function App() {
     <>
       <div>
         <Navigation />
-        <Home />
+        <Home />   
         <Footer />
       </div>
     </>

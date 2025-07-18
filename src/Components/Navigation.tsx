@@ -50,15 +50,11 @@ const Navigation: FC = () => {
 
         {openMenu && (
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-            <li>
-              <a href="#">Link 1</a>
-            </li>
-            <li>
-              <a href="#">Link 2</a>
-            </li>
-            <li>
-              <a href="#">Link 3</a>
-            </li>
+            {menuOptions.map((item, index) => (
+              <li key={index}>
+                <a href="{item.href}">{item.text}</a>
+              </li>
+            ))}
           </ul>
         )}
       </div>
