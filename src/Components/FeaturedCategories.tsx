@@ -15,17 +15,29 @@ const FeaturedCategories: FC = () => {
 };
 
   useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((res) => res.json())
-      .then((data) => {
-        const names = (data.categories as Category[]).map((cat) => cat.strCategory);
-        setAllCategories(names);
+  async function fetchCategories() {
+    try {
+      const response = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
 
-        const initial = names.filter((name: string) => featured.includes(name));
-        setVisibleCategories(initial);
-      })
-      .catch((err) => console.error("Couldn't load categories", err));
-  }, []);
+      if (!response.ok) {
+        throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const categories: Category[] = data.categories;
+
+      const names = categories.map((cat) => cat.strCategory);
+      setAllCategories(names);
+
+      const initial = names.filter((name) => featured.includes(name));
+      setVisibleCategories(initial);
+    } catch (err) {
+      console.error("Couldn't load categories", err);
+    }
+  }
+
+  fetchCategories();
+}, []);
 
   const toggleView = () => {
     if (showAll) {
