@@ -53,7 +53,7 @@ header {
 .logo h1 {
   font-weight: bolder;
   font-size: xx-large;
-
+  text-align: left;
 }
 
 .menu {
@@ -102,6 +102,7 @@ main {
 /* Latest Recipes Section */
 .breakfast-wrapper {
   min-height: 300px;
+  padding: 1rem;
 }
 
 /* Footer */
@@ -114,7 +115,3 @@ footer {
   bottom: 0;
 }
 
-.align-left {
-  /* Navigation title */
-  text-align: left;
-}
