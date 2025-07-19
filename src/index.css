@@ -21,12 +21,11 @@
   color: var(--color-base-content);
 }
 
-
 /* Navbar */
 header {
-   position: fixed;
-   z-index: 999;
-   width: 100%;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
 }
 
 .navbar button {
@@ -74,7 +73,7 @@ main {
 }
 
 .hero {
-  background-image: url('./assets/pexels-adonyi-foto-1414651.jpg');
+  background-image: url("./assets/pexels-adonyi-foto-1414651.jpg");
   background-size: cover;
   margin-top: 80px;
 }
@@ -82,6 +81,10 @@ main {
 .cats {
   min-height: 300px;
   margin: 2rem 2rem 80px 2rem;
+}
+
+.card-title {
+  margin: auto 0.5rem 0.5rem 0.5rem;
 }
 
 .card {
@@ -98,6 +101,7 @@ footer {
   bottom: 0;
 }
 
-.align-left { /* Navigation title */
+.align-left {
+  /* Navigation title */
   text-align: left;
 }
