@@ -1,6 +1,6 @@
 import type { FC } from "react";
+import BreakfastRecipes from "./BreakfastRecipes";
 import FeaturedCategories from "./FeaturedCategories";
-import LatestRecipes from "./LatestRecipes";
 
 const Home: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Home: FC = () => {
           </div>
         </div>
       </div>
-      <LatestRecipes />
+      <BreakfastRecipes/>
       <FeaturedCategories />
     </main>
   );

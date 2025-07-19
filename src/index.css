@@ -53,7 +53,7 @@ header {
 .logo h1 {
   font-weight: bolder;
   font-size: xx-large;
-  color: yellowgreen;
+
 }
 
 .menu {
@@ -86,7 +86,7 @@ main {
 }
 
 .cats {
-  
+
   min-height: 300px;
   margin: 2rem 2rem 80px 2rem;
 }
@@ -100,7 +100,7 @@ main {
 }
 
 /* Latest Recipes Section */
-.latest-recipes {
+.breakfast-wrapper {
   min-height: 300px;
 }
 

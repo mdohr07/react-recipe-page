@@ -22,7 +22,7 @@ const FeaturedCategories: FC = () => {
         );
 
         if (!response.ok) {
-          throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+          throw new Error(`HTTP-Error! Status: ${response.status}`);
         }
 
         const data = await response.json();
