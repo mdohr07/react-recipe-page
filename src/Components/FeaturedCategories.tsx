@@ -56,7 +56,7 @@ const FeaturedCategories: FC = () => {
       <div className="cats grid grid-cols-2 md:grid-cols-4 gap-4">
         {visibleCategories.map((name) => (
           <section>
-            <h2 className="card-title text-sm">{name}</h2>
+            <h2 className="card-title text-2xl font-bold">{name}</h2>
             <div key={name} className="card bg-base-100 shadow-sm card-border">
               <figure className="h-32 overflow-hidden">
                 <img

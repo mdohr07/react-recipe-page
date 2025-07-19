@@ -31,9 +31,9 @@ const BreakfastRecipes: FC = () => {
     fetchBreakfast();
   }, []);
 
-  return <section className="breakfast-wrapper bg-base-300 p-4">
-  <h2 className="text-2xl font-bold mb-4">Breakfast!</h2>
-  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+  return <section className="breakfast-wrapper bg-base-200 p-4">
+  <h2 className="text-3xl font-bold mb-4">Breakfast Ideas</h2>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
     {breakfast.map((meal) => (
       <div key={meal.idMeal} className="card bg-base-100 shadow-md">
         <figure>

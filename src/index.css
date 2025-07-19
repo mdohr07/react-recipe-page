@@ -95,10 +95,6 @@ main {
   margin: auto 0.5rem 0.5rem 0.5rem;
 }
 
-.card {
-  background-color: #fff;
-}
-
 /* Latest Recipes Section */
 .breakfast-wrapper {
   min-height: 300px;
