@@ -1,20 +1,19 @@
 import { useEffect, useState, type FC } from "react";
 
 const BreakfastRecipes: FC = () => {
-  const [breakfast, setBreakfast] = useState<string[]>([]);
+  const [breakfast, setBreakfast] = useState<Meal[]>([]);
 
-    type Category = {
-    idCategory: string;
-    strCategory: string;
-    strCategoryThumb: string;
-    strCategoryDescription: string;
+    type Meal = {
+    strMeal: string;
+    strMealThumb: string;
+    idMeal: string;
   };
   
   useEffect(() => {
     async function fetchBreakfast() {
       try {
         const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/categories.php"
+          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast"
         );
 
         if (!response.ok) {
@@ -22,10 +21,8 @@ const BreakfastRecipes: FC = () => {
         }
 
         const banana = await response.json();
-        const categories: Category[] = banana.categories;
+        setBreakfast(banana.meals);
 
-        const names = categories.map((cat) => cat.strCategory);
-        setBreakfast(names);
 
       } catch (err) {
         console.error("Couldn't load data", err);
@@ -34,10 +31,21 @@ const BreakfastRecipes: FC = () => {
     fetchBreakfast();
   }, []);
 
-  return <div className="breakfast-wrapper bg-base-300">
-    <h2>Breakfast!</h2>
-    <p>{breakfast}</p>
-    </div>;
+  return <section className="breakfast-wrapper bg-base-300 p-4">
+  <h2 className="text-2xl font-bold mb-4">Breakfast!</h2>
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    {breakfast.map((meal) => (
+      <div key={meal.idMeal} className="card bg-base-100 shadow-md">
+        <figure>
+          <img src={meal.strMealThumb} alt={meal.strMeal} />
+        </figure>
+        <div className="card-body">
+          <h3 className="card-title text-lg">{meal.strMeal}</h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 };
 
 export default BreakfastRecipes;
