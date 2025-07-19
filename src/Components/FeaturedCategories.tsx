@@ -31,17 +31,31 @@ const FeaturedCategories: FC = () => {
   };
 
   return (
-    <div className="cats bg-base-100">
-      <h2>Categories</h2>
-      <ul>
-        {visibleCategories.map((name) => (
-          <li key={name} className="card-body">{name}</li>
-        ))}
-      </ul>
-      <button className="btn btn-secondary" onClick={toggleView}>
-        {showAll ? "Show less" : "Show all"}
-      </button>
+<div className="cats grid grid-cols-2 md:grid-cols-4 gap-4">
+  {visibleCategories.map((name) => (
+    <div key={name} className="card bg-base-100 shadow-sm card-border">
+      <figure className="h-32 overflow-hidden">
+        <img
+          src={`https://www.themealdb.com/images/category/${name}.png`}
+          alt={name}
+          className="object-cover w-full h-full"
+        />
+      </figure>
+      <div className="card-body p-3">
+        <h2 className="card-title text-sm">{name}</h2>
+        <div className="card-actions justify-end">
+          <button className="btn btn-sm btn-secondary">View</button>
+        </div>
+      </div>
     </div>
+  ))}
+
+  <div className="col-span-full flex justify-center mt-2">
+    <button className="btn btn btn-active btn-xs" onClick={toggleView}>
+      {showAll ? "Show less" : "Show all"}
+    </button>
+  </div>
+</div>
   );
 };
 

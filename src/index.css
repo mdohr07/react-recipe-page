@@ -81,7 +81,11 @@ main {
 
 .cats {
   min-height: 300px;
-  margin-bottom: 80px;
+  margin: 2rem 2rem 80px 2rem;
+}
+
+.card {
+  background-color: #fff;
 }
 
 /* Footer */
@@ -96,8 +100,4 @@ footer {
 
 .align-left { /* Navigation title */
   text-align: left;
-}
-
-button, button a {
-    color: #fff;
 }
