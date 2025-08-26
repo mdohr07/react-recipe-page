@@ -1,13 +1,14 @@
 import { useEffect, useState, type FC } from "react";
-
-const BreakfastRecipes: FC = () => {
-  const [breakfast, setBreakfast] = useState<Meal[]>([]);
+import { Link } from "react-router-dom";
 
     type Meal = {
     strMeal: string;
     strMealThumb: string;
     idMeal: string;
   };
+
+  const BreakfastRecipes: FC = () => {
+    const [breakfast, setBreakfast] = useState<Meal[]>([]);
   
   useEffect(() => {
     async function fetchBreakfast() {
@@ -35,7 +36,8 @@ const BreakfastRecipes: FC = () => {
   <h2 className="text-3xl font-bold mb-4">Breakfast Ideas</h2>
   <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
     {breakfast.map((meal) => (
-      <div key={meal.idMeal} className="card bg-base-100 shadow-md">
+      <Link key={meal.idMeal} to={`/recipe/${meal.idMeal}`}>
+      <div className="card bg-base-100 shadow-md">
         <figure>
           <img src={meal.strMealThumb} alt={meal.strMeal} />
         </figure>
@@ -43,6 +45,7 @@ const BreakfastRecipes: FC = () => {
           <h3 className="card-title text-lg">{meal.strMeal}</h3>
         </div>
       </div>
+      </Link>
     ))}
   </div>
 </section>

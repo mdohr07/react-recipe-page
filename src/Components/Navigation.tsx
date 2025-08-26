@@ -4,16 +4,16 @@ const Navigation: FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const menuOptions = [
     {
-      text: "Link 1",
-      href: "#",
+      text: "Home",
+      href: "/",
     },
     {
-      text: "Link 2",
-      href: "#",
+      text: "About",
+      href: "/about",
     },
     {
-      text: "Link 3",
-      href: "#",
+      text: "Contact",
+      href: "/contact",
     },
   ];
 
