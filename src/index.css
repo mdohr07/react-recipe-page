@@ -177,7 +177,7 @@ div.card-body h3 {
 
 .instructions-wrapper h2 {
   text-align: center;
-  /* margin: 0 3rem; */
+  align-items: center;
 }
 
 .recipe-detail p {
