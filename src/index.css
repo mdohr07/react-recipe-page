@@ -178,6 +178,16 @@ div.card-body h3 {
   margin: 1rem 0;
 }
 
+.ingredients {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ingredients ul li {
+  list-style-type: none;
+  margin-left: -1.5rem;
+}
+
 /* Footer */
 footer {
   display: flex;

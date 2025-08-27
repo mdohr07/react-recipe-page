@@ -1,5 +1,5 @@
 import React, { useEffect, useState, type FC } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 type Meal = {
   strMeal: string;
@@ -10,8 +10,8 @@ type Meal = {
 
 const RecipeDetail: FC = () => {
   const { recipeId } = useParams();
-  const [meal, setMeal] = useState<Meal | null>(null); 
-  
+  const [meal, setMeal] = useState<Meal | null>(null);
+
   useEffect(() => {
     async function fetchDetails() {
       try {
@@ -27,41 +27,62 @@ const RecipeDetail: FC = () => {
         console.error("Couldn't load data", err);
       }
     }
-    
-    if (recipeId) { 
+
+    if (recipeId) {
       fetchDetails();
     }
   }, [recipeId]);
 
   const getIngredients = (meal: Meal) => {
     const ingredients = [];
-    for (let i = 1; i <=20; i++) {
+    for (let i = 1; i <= 20; i++) {
       const ingredient = meal[`strIngredient${i}` as keyof Meal];
 
-      if (ingredient && ingredient.trim() !== '') {
+      if (ingredient && ingredient.trim() !== "") {
         ingredients.push(ingredient);
       }
     }
     return ingredients;
-  }
+  };
+
+  const getMeasures = (meal: Meal) => {
+    const measures = [];
+    for (let i = 1; i <= 20; i++) {
+      const measure = meal[`strMeasure${i}` as keyof Meal];
+
+      if (measure && measure.trim() !== "") {
+        measures.push(measure);
+      }
+    }
+    return measures;
+  };
 
   return (
     <div className="recipe-detail card bg-base-100 shadow-md">
       <h1>{meal?.strMeal}</h1>
       <figure>
-          <img src={meal?.strMealThumb} alt={meal?.strMeal} />
-        </figure>
-        <h2>Ingredients</h2>
+        <img src={meal?.strMealThumb} alt={meal?.strMeal} />
+      </figure>
+      <h2>Ingredients</h2>
+      <section className="ingredients">
         <ul>
-          {meal && getIngredients(meal).map((ingredients, index) => (
-            <li key={index}>{ingredients}</li>
-          ))}
+          {meal &&
+            getMeasures(meal).map((measures, index) => (
+              <li key={index}>{measures}</li>
+            ))}
         </ul>
-        <h3>Instructions</h3>
+        <ul>
+          {meal &&
+            getIngredients(meal).map((ingredients, index) => (
+              <li key={index}>{ingredients}</li>
+            ))}
+        </ul>
+      </section>
+
+      <h3>Instructions</h3>
       <p>{meal?.strInstructions}</p>
     </div>
   );
 };
 
 export default RecipeDetail;
-
