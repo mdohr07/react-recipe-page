@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
     async function fetchBreakfast() {
       try {
         const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast"
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast`
         );
 
         if (!response.ok) {

@@ -111,11 +111,11 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
   justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
-  padding-top: 80px;
+  padding: 80px 0;
 }
 
 .hero {
@@ -155,19 +155,38 @@ div.card-body h3 {
 
 /* Details page */
 .recipe-detail {
+  max-width: 800px;
   margin: 2rem;
   background-color: #fff;
   padding: 0.5rem 2rem 2rem 2rem;
   border: 1px solid #ccc;
 }
 
+.recipe-detail h1 {
+  text-align: center;
+}
+
+.recipe-detail img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 4;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.recipe-detail p {
+  margin: 1rem 0;
+}
+
 /* Footer */
 footer {
   display: flex;
   justify-content: center;
-  flex-shrink: 0;
-  position: fixed;
+  max-height: 60px;
   margin: 0;
-  bottom: 0;
+}
+
+footer p {
+  margin: 0;
 }
 
