@@ -33,14 +33,31 @@ const RecipeDetail: FC = () => {
     }
   }, [recipeId]);
 
-  
+  const getIngredients = (meal: Meal) => {
+    const ingredients = [];
+    for (let i = 1; i <=20; i++) {
+      const ingredient = meal[`strIngredient${i}` as keyof Meal];
+
+      if (ingredient && ingredient.trim() !== '') {
+        ingredients.push(ingredient);
+      }
+    }
+    return ingredients;
+  }
+
   return (
     <div className="recipe-detail card bg-base-100 shadow-md">
       <h1>{meal?.strMeal}</h1>
       <figure>
           <img src={meal?.strMealThumb} alt={meal?.strMeal} />
         </figure>
-        <h2>Instructions</h2>
+        <h2>Ingredients</h2>
+        <ul>
+          {meal && getIngredients(meal).map((ingredients, index) => (
+            <li key={index}>{ingredients}</li>
+          ))}
+        </ul>
+        <h3>Instructions</h3>
       <p>{meal?.strInstructions}</p>
     </div>
   );
