@@ -63,24 +63,27 @@ const RecipeDetail: FC = () => {
       <figure>
         <img src={meal?.strMealThumb} alt={meal?.strMeal} />
       </figure>
-      <h2>Ingredients</h2>
-      <section className="ingredients">
-        <ul>
-          {meal &&
-            getMeasures(meal).map((measures, index) => (
-              <li key={index}>{measures}</li>
-            ))}
-        </ul>
-        <ul>
-          {meal &&
-            getIngredients(meal).map((ingredients, index) => (
-              <li key={index}>{ingredients}</li>
-            ))}
-        </ul>
-      </section>
 
-      <h3>Instructions</h3>
-      <p>{meal?.strInstructions}</p>
+      <div className="instructions-wrapper">
+        <b>Ingredients:</b>
+        <section className="ingredients">
+          <ul>
+            {meal &&
+              getMeasures(meal).map((measures, index) => (
+                <li key={index}>{measures}</li>
+              ))}
+          </ul>
+          <ul>
+            {meal &&
+              getIngredients(meal).map((ingredients, index) => (
+                <li key={index}>{ingredients}</li>
+              ))}
+          </ul>
+        </section>
+
+        <h2>Instructions</h2>
+        <p>{meal?.strInstructions}</p>
+      </div>
     </div>
   );
 };

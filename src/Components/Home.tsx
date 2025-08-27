@@ -14,12 +14,16 @@ const Home: FC = () => {
               - without any gourmet fuss. Perfect for weeknight dinners, lazy
               weekends, or whenever you're just hungry and out of ideas.
             </p>
-            <button className="btn btn-primary btn-xl">Start cooking</button>
+            <a href="#startCooking">
+              <button className="btn btn-primary btn-xl">Start cooking</button>
+            </a>
           </div>
         </div>
       </div>
-      <BreakfastRecipes/>
-      <FeaturedCategories />
+      <BreakfastRecipes />
+      <section id="startCooking">
+        <FeaturedCategories />
+      </section>
     </div>
   );
 };
