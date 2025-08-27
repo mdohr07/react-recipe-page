@@ -21,6 +21,12 @@
   color: var(--color-base-content);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 /* Navbar */
 header {
   position: fixed;
@@ -70,12 +76,12 @@ main {
   justify-content: center;
   height: 100%;
   width: 100%;
+  padding-top: 80px;
 }
 
 .hero {
   background-image: url("./assets/pexels-adonyi-foto-1414651.jpg");
   background-size: cover;
-  margin-top: 80px;
 }
 
 /* Category section */
@@ -83,10 +89,11 @@ main {
   min-height: 300px;
   background-image: url('./assets/pexels-goumbik-349610.jpg');
   background-size: cover;
+  margin: 0;
+  padding: 1rem 0;
 }
 
 .cats {
-
   min-height: 300px;
   margin: 2rem 2rem 80px 2rem;
 }
@@ -99,6 +106,15 @@ main {
 .breakfast-wrapper {
   min-height: 300px;
   padding: 1rem;
+  margin: 0;
+}
+
+/* Details page */
+.recipe-detail {
+  margin: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border: 1px solid #ccc;
 }
 
 /* Footer */

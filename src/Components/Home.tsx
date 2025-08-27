@@ -4,7 +4,7 @@ import FeaturedCategories from "./FeaturedCategories";
 
 const Home: FC = () => {
   return (
-    <main>
+    <div>
       <div className="hero bg-base-100 min-h-screen">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -20,7 +20,7 @@ const Home: FC = () => {
       </div>
       <BreakfastRecipes/>
       <FeaturedCategories />
-    </main>
+    </div>
   );
 };
 

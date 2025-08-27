@@ -55,9 +55,9 @@ const FeaturedCategories: FC = () => {
     <section className="cat-wrapper">
       <div className="cats grid grid-cols-2 md:grid-cols-4 gap-4">
         {visibleCategories.map((name) => (
-          <section>
+          <section key={name}>
             <h2 className="card-title text-2xl font-bold">{name}</h2>
-            <div key={name} className="card bg-base-100 shadow-sm card-border">
+            <div className="card bg-base-100 shadow-sm card-border">
               <figure className="h-32 overflow-hidden">
                 <img
                   src={`https://www.themealdb.com/images/category/${name}.png`}
