@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@tailwind utilities;
+@plugin "@tailwindcss/typography";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "lemonade";
@@ -25,6 +27,37 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  margin: 1em 0 0.5em 0;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }  /* ~40px */
+h2 { font-size: 2rem; }    /* ~32px */
+h3 { font-size: 1.5rem; }  /* ~24px*/
+h4 { font-size: 1.25rem; } /* ~20px */
+h5 { font-size: 1.125rem; }/* ~18px */
+h6 { font-size: 1rem; }    /* ~16px */
+
+
+/* Optional: Absätze */
+p {
+  margin: 0 0 1em 0;
+}
+
+ul, ol {
+  margin: 0 0 1em 1.5em;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Navbar */
@@ -32,6 +65,10 @@ header {
   position: fixed;
   z-index: 999;
   width: 100%;
+}
+
+.navbar {
+  height: 80px;
 }
 
 .navbar button {
@@ -82,6 +119,7 @@ main {
 .hero {
   background-image: url("./assets/pexels-adonyi-foto-1414651.jpg");
   background-size: cover;
+  font-size: 1.25rem;
 }
 
 /* Category section */
@@ -96,6 +134,10 @@ main {
 .cats {
   min-height: 300px;
   margin: 2rem 2rem 80px 2rem;
+}
+
+div.card-body h3 {
+  font-size: 20px;
 }
 
 .card-title {
@@ -113,7 +155,7 @@ main {
 .recipe-detail {
   margin: 2rem;
   background-color: #fff;
-  padding: 2rem;
+  padding: 0.5rem 2rem 2rem 2rem;
   border: 1px solid #ccc;
 }
 
