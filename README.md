@@ -1,69 +1,68 @@
-# React + TypeScript + Vite
+# REACT RECIPE PAGE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Recipe Page is a web application that allows users to browse and search for recipes from the <b>Recipe DB</b>. 
+The project is a playground to practice <b>React</b>, <b>TypeScript</b>, <b>Vite</b>, <b>CSS</b>, and <b>DaisyUI</b>, 
+while building a clean and responsive user interface.
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="public/preview.png" alt="React Recipe Page Preview 1" width="400">
+  <img src="public/preview_details.png" alt="React Recipe Page Preview 2" width="400">
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## FEATURES
 
-## Expanding the ESLint configuration
+<p>
+- Browse and search recipes using <b>Recipe DB API</b>.<br>
+- Responsive layout with <b>DaisyUI</b> components.<br>
+- Clean and intuitive <b>React + TypeScript</b> code structure.<br>
+- Smooth interactions and visually appealing UI.
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## TECH STACK
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<p>
+Frontend: React, TypeScript, Vite<br>
+Styling: CSS, DaisyUI<br>
+API: <a href="https://www.themealdb.com/">Recipe DB</a>
+</p>
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### CODE SNIPPET
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<p align="center">
+Example of fetching data from the Recipe DB API:
+</p>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```typescript
+  type Category = {
+    idCategory: string;
+    strCategory: string;
+    strCategoryThumb: string;
+    strCategoryDescription: string;
+  };
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  useEffect(() => {
+    async function fetchCategories() {
+      try {
+        const response = await fetch(
+          "https://www.themealdb.com/api/json/v1/1/categories.php"
+        );
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+        if (!response.ok) {
+          throw new Error(`HTTP-Error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const categories: Category[] = data.categories;
+
+        setAllCategories(categories);
+        const initial = categories.filter((cat) =>
+          featured.includes(cat.strCategory)
+        );
+        setVisibleCategories(initial);
+      } catch (err) {
+        console.error("Couldn't load categories", err);
+      }
+    }
+    fetchCategories();
+  }, []);
 ```
